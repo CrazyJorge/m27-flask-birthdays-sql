@@ -1,0 +1,13 @@
+{
+    "name": "Flask Birthdays (SQL)",
+    "image": "mcr.microsoft.com/devcontainers/python:3.11",
+    "postCreateCommand": "pip install -r requirements.txt && python init_db.py",
+    "forwardPorts": [5000],
+    "customizations": {
+        "vscode": {
+            "settings": {
+                "python.defaultInterpreterPath": "/usr/local/bin/python"
+            }
+        }
+    }
+}

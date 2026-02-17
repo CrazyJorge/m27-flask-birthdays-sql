@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block content %}
+    <h1>Birthdays</h1>
+
+    <h2>Add a Birthday</h2>
+    <form action="/" method="POST">
+        <input type="text" name="name" placeholder="Name" required>
+        <input type="number" name="month" placeholder="Month (1-12)" min="1" max="12" required>
+        <input type="number" name="day" placeholder="Day (1-31)" min="1" max="31" required>
+        <button type="submit">Add</button>
+    </form>
+
+    <h2>All Birthdays</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Month</th>
+                <th>Day</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- TODO: Loop over birthdays and display each one -->
+            <!-- Each row should show: name, month, day, and a delete button -->
+            <!-- The delete button should be a small form that POSTs to /delete with a hidden input for the birthday id -->
+            <!--
+            {% for birthday in birthdays %}
+            <tr>
+                <td>{{ birthday.name }}</td>
+                <td>{{ birthday.month }}</td>
+                <td>{{ birthday.day }}</td>
+                <td>
+                    <form action="/delete" method="POST">
+                        <input type="hidden" name="id" value="{{ birthday.id }}">
+                        <button type="submit">Delete</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+            -->
+        </tbody>
+    </table>
+{% endblock %}
