@@ -30,7 +30,7 @@ To interact with the database from Python, we use the **CS50 SQL library**. It l
 
 ## Assignment
 
-Complete the app so that users can view, add, and delete birthdays. Work through these steps in order.
+Complete the app so that users can view and add birthdays. Work through these steps in order.
 
 ### Step 1: Display birthdays (GET route)
 
@@ -78,27 +78,6 @@ In `app.py`, find the `if request.method == "POST"` block inside `index()`. Repl
 
 Run the app. Type a name, month, and day into the form and click Add. The new birthday should appear in the table.
 
-### Step 6: Delete a birthday
-
-In `app.py`, find the `delete()` function. Replace `pass` with code to:
-
-- Get the birthday id from the form:
-  ```python
-  id = request.form.get("id")
-  ```
-- Delete that birthday from the database:
-  ```python
-  db.execute("DELETE FROM birthdays WHERE id = ?", id)
-  ```
-- Redirect back to the home page:
-  ```python
-  return redirect(url_for("index"))
-  ```
-
-### Step 7: Test deleting
-
-Run the app. Click the Delete button next to any birthday. That row should disappear from the table.
-
 ## SQL Reference
 
 Here are the SQL queries you'll use in this assignment. In each one, `db` is the database connection created at the top of `app.py`.
@@ -107,7 +86,6 @@ Here are the SQL queries you'll use in this assignment. In each one, `db` is the
 |-----------|------|---------|
 | Read all rows | `db.execute("SELECT * FROM birthdays")` | A list of dictionaries, one per row |
 | Insert a row | `db.execute("INSERT INTO birthdays (name, month, day) VALUES(?, ?, ?)", name, month, day)` | The new row's id |
-| Delete a row | `db.execute("DELETE FROM birthdays WHERE id = ?", id)` | -- |
 
 **Always use `?` for user input.** Never paste variables directly into the SQL string. The `?` placeholders keep your app safe from SQL injection attacks.
 

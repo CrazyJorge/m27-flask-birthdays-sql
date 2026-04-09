@@ -20,13 +20,5 @@ def index():
     # TODO: Pass the birthdays list to the template
     return render_template("index.html")
 
-@app.route("/delete", methods=["POST"])
-def delete():
-    # TODO: Get the birthday id from the form
-    # TODO: Delete that birthday from the database
-    #       Use: db.execute("DELETE FROM birthdays WHERE id = ?", id)
-    # TODO: Redirect back to "/"
-    pass
-
 if __name__ == "__main__":
     app.run(debug=True)
