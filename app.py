@@ -9,16 +9,16 @@ db = SQL("sqlite:///birthdays.db")
 @app.route("/", methods=["GET", "POST"])
 def index():
     if request.method == "POST":
-        # TODO: Read the form data (name, month, day) from request.form
-        # TODO: Insert the new birthday into the database using db.execute
-        #       Use: db.execute("INSERT INTO birthdays (name, month, day) VALUES(?, ?, ?)", name, month, day)
-        # TODO: Redirect back to "/"
-        pass
+        name = request.form.get("name")
+        month = request.form.get("month")
+        day = request.form.get("day")
+        db.execute("INSERT INTO birthdays (name, month, day) VALUES(?, ?, ?)", name, month, day)
+        return redirect(url_for("index"))
 
     # TODO: Query all birthdays from the database
-    #       Use: birthdays = db.execute("SELECT * FROM birthdays")
+    birthdays = db.execute("SELECT * FROM birthdays")
     # TODO: Pass the birthdays list to the template
-    return render_template("index.html")
+    return render_template("index.html",birthdays = birthdays)
 
 if __name__ == "__main__":
     app.run(debug=True)
